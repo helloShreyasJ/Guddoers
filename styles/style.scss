@@ -1,0 +1,38 @@
+// Color variables
+$turquoise: #1ABC9C;
+$emerald: #2ECC71;
+$peter-river: #3498DB;
+$amethyst: #9B59B6;
+$sunflower: #F1C40F;
+$nice-red: #E74C3C;
+$placeholder-background: #D9D9D9;
+$placeholder-image: #A0A0A0;
+$color-black: #000000;
+$color-white: #FFFFFF;
+
+// Architectural variables
+$color-primary: $color-black;
+$color-secondary: $placeholder-image;
+$color-background: $color-white;
+$color-background-alt: $placeholder-background;
+$color-text: $color-black;
+$color-border: $color-black;
+
+.alfa-slab-one-regular {
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lobster-regular {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-condensed-desktop {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
