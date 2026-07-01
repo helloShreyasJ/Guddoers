@@ -18,21 +18,221 @@ $color-background-alt: $placeholder-background;
 $color-text: $color-black;
 $color-border: $color-black;
 
-.alfa-slab-one-regular {
-    font-family: "Alfa Slab One", serif;
-    font-weight: 400;
+// Font variables
+$font-alfa: "Alfa Slab One", serif;
+$font-lobster: "Lobster", sans-serif;
+$font-roboto-cond: "Roboto Condensed", sans-serif;
+
+$weight-regular: 400;
+$weight-medium: 500;
+
+$text-xs: 8px;   // Onboard Mobile Form
+$text-sm: 10px;  // Host Mobile, Copyright, Studio Mobile Button
+$text-base: 14px; // Host Mobile Header, Tablet Button
+$text-md: 16px;  // Host Desktop Text, Creator Tablet Feature
+$text-lg: 20px;  // Desktop Button, Navbar Tablet Menu
+$text-xl: 24px;  // Navbar Mobile, Navbar Tablet, Creator Tablet Feature
+$text-2xl: 32px; // Navbar Desktop, Hero Tablet, Creator Tablet
+$text-3xl: 48px; // Hero Desktop, Creator Desktop
+
+// Breakpoints
+$breakpoints: (
+    'tablet':  768px,
+    'desktop': 1024px,
+    'wide':    1440px
+);
+
+@mixin font-alfa-slab($size: $text-3xl) {
+    font-family: $font-alfa;
+    font-size: $size;
+    font-weight: $weight-regular;
     font-style: normal;
 }
 
-.lobster-regular {
-    font-family: "Lobster", sans-serif;
-    font-weight: 400;
+@mixin font-roboto-condensed($weight: $weight-medium, $size: $text-md) {
+    font-family: $font-roboto-cond;
+    font-weight: $weight;
+    font-size: $size;
     font-style: normal;
-}
-
-.roboto-condensed-desktop {
-    font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+}
+
+@mixin font-lobster($weight: $weight-regular, $size: $text-xl) {
+    font-family: $font-lobster;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (min-width: 780px) {
+    header {
+        background-color: $placeholder-image;
+        padding: 10px 5px;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 3.5rem;
+        padding: 10px;
+    }
+
+    .nav-left {
+        justify-content: flex-end;
+        padding-right: 6.5rem;
+    }
+
+    .nav-right {
+        justify-content: flex-start;
+        padding-left: 6.5rem;
+    }
+
+    nav a {
+        @include font-lobster($weight-regular, $text-xl); 
+        color: $color-white;
+        text-decoration: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+    
+    nav .logo {
+        color: $color-white;
+        @include font-alfa-slab($text-2xl);
+    }
+
+    nav .tagline {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 780px) and (min-width: 375px) {
+    header {
+        background-color: $placeholder-image;
+        padding: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 780px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 3.5rem;
+        padding: 10px;
+    }
+
+    .nav-left {
+        justify-content: center;
+        gap: 12.5rem;
+    }
+
+    .nav-right {
+        justify-content: center;
+        gap: 12.5rem;
+    }
+
+    nav a {
+        @include font-lobster($weight-regular, $text-lg);
+        color: $color-white;
+        text-decoration: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+    
+    nav .logo {
+        color: $color-white;
+        @include font-alfa-slab($text-2xl); // jizliz
+    }
+
+    nav .tagline {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    header {
+        background-color: $placeholder-image;
+        padding: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 780px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 3.5rem;
+        padding: 10px;
+    }
+
+    .nav-left {
+        display: none;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    nav a {
+        @include font-lobster($weight-regular, $text-lg);
+        color: $color-white;
+        text-decoration: none;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+    
+    nav .logo {
+        color: $color-white;
+        @include font-alfa-slab($text-2xl);
+    }
+
+    .brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tagline {
+        @include font-lobster($weight-regular, $text-base);
+        color: $color-white;
+        justify-content: center;
+    }
 }
