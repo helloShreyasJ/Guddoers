@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
 @media only screen and (min-width: 780px) {
   header {
     background-color: #A0A0A0;
@@ -52,8 +57,51 @@
   nav .tagline {
     display: none;
   }
+  main {
+    align-items: center;
+    justify-content: center;
+  }
+  #hero {
+    margin: 106px;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-header {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+  }
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    gap: 8px;
+  }
+  h1 {
+    font-family: "Lobster", sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+  }
+  h2 {
+    font-family: "Lobster", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+  }
+  #hero > img {
+    width: 932px;
+    height: 469px;
+  }
+  #hero > img:hover {
+    opacity: 70%;
+    cursor: pointer;
+  }
+  .social-links > a:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
 }
-@media only screen and (max-width: 780px) and (min-width: 375px) {
+@media only screen and (max-width: 779px) and (min-width: 375px) {
   header {
     background-color: #A0A0A0;
     padding: 10px;
@@ -103,7 +151,7 @@
     display: none;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 374px) {
   header {
     background-color: #A0A0A0;
     padding: 10px;
