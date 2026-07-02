@@ -80,7 +80,6 @@ nav .brand .tagline {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 32px;
   width: 100%;
   max-width: 1200px;
 }
@@ -89,6 +88,9 @@ nav .brand .tagline {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+#hero .section-header .hero-header {
+  display: none;
 }
 #hero .section-header h1 {
   font-family: "Lobster", sans-serif;
@@ -116,8 +118,7 @@ nav .brand .tagline {
 }
 
 @media only screen and (min-width: 768px) {
-  nav .nav-left,
-  nav .nav-right {
+  nav .nav-left, nav .nav-right {
     display: flex;
     justify-content: center;
     gap: 3rem;
@@ -126,11 +127,30 @@ nav .brand .tagline {
     display: none;
   }
   #hero {
-    margin: 60px 20px;
-    gap: 40px;
+    margin: 2.5rem auto;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    gap: 1.5rem;
+  }
+  #hero .hero-image {
+    max-width: 90%;
   }
   #hero .section-header {
-    gap: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    gap: 8rem;
+  }
+  #hero .section-header .hero-header {
+    display: block;
+  }
+  #hero .section-header h1 {
+    font-size: 32px;
+  }
+  #hero .section-header h2 {
+    font-size: 24px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -166,6 +186,9 @@ nav .brand .tagline {
     align-items: end;
     gap: 10rem;
     max-width: 100%;
+  }
+  #hero .section-header .hero-header {
+    display: block;
   }
   #hero .section-header h1 {
     font-size: 48px;
