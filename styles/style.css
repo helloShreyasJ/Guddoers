@@ -9,204 +9,181 @@ body {
   color: #FFFFFF;
 }
 
-@media only screen and (min-width: 780px) {
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.section-container {
+  flex-wrap: wrap;
+}
+
+header {
+  background-color: #1F6ABB;
+  padding: 10px;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 10px;
+}
+nav .nav-left, nav .nav-right {
+  display: none;
+}
+nav a {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+nav .brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+nav .brand .logo {
+  color: #FFFFFF;
+  font-family: "Alfa Slab One", serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+}
+nav .brand .tagline {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#hero {
+  margin: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+}
+#hero .section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+#hero .section-header h1 {
+  font-family: "Lobster", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+}
+#hero .section-header h2 {
+  font-family: "Lobster", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+#hero .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+#hero .social-links a {
+  transition: opacity 0.2s ease;
+}
+#hero img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+@media only screen and (min-width: 768px) {
+  nav .nav-left,
+  nav .nav-right {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+  nav .brand .tagline {
+    display: none;
+  }
+  #hero {
+    margin: 60px 20px;
+    gap: 40px;
+  }
+  #hero .section-header {
+    gap: 24px;
+  }
+}
+@media only screen and (min-width: 1024px) {
   header {
-    background-color: #A0A0A0;
-    padding: 10px 5px;
+    padding: 10px 20px;
   }
   nav {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
   }
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 3.5rem;
-    padding: 10px;
-  }
-  .nav-left {
+  nav .nav-left {
     justify-content: flex-end;
-    padding-right: 6.5rem;
+    padding-right: 4rem;
   }
-  .nav-right {
+  nav .nav-right {
     justify-content: flex-start;
-    padding-left: 6.5rem;
+    padding-left: 4rem;
   }
   nav a {
-    font-family: "Lobster", sans-serif;
-    font-weight: 400;
     font-size: 24px;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: opacity 0.2s ease-in-out;
-  }
-  nav a:hover {
-    opacity: 0.7;
-  }
-  nav .logo {
-    color: #FFFFFF;
-    font-family: "Alfa Slab One", serif;
-    font-size: 32px;
-    font-weight: 400;
-    font-style: normal;
-  }
-  nav .tagline {
-    display: none;
-  }
-  main {
-    align-items: center;
-    justify-content: center;
   }
   #hero {
-    margin: 106px;
-    align-items: center;
+    margin: 3.5rem auto;
+    flex-direction: row;
     justify-content: center;
+    text-align: left;
+    gap: 1.5rem;
   }
-  .section-header {
+  #hero .section-header {
     display: flex;
     flex-direction: row;
-    gap: 100px;
-  }
-  .social-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
+    justify-content: space-between;
     align-items: end;
-    gap: 8px;
+    gap: 10rem;
+    max-width: 100%;
   }
-  h1 {
-    font-family: "Lobster", sans-serif;
-    font-weight: 500;
+  #hero .section-header h1 {
     font-size: 48px;
   }
-  h2 {
-    font-family: "Lobster", sans-serif;
-    font-weight: 500;
-    font-size: 32px;
+  #hero .section-header h2 {
+    font-size: 48px;
   }
-  #hero > img {
-    width: 932px;
-    height: 469px;
-  }
-  #hero > img:hover {
-    opacity: 70%;
-    cursor: pointer;
-  }
-  .social-links > a:hover {
-    opacity: 80%;
-    cursor: pointer;
+  #hero .social-links {
+    justify-content: flex-start;
   }
 }
-@media only screen and (max-width: 779px) and (min-width: 375px) {
-  header {
-    background-color: #A0A0A0;
-    padding: 10px;
-  }
-  nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 780px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 3.5rem;
-    padding: 10px;
-  }
-  .nav-left {
-    justify-content: center;
-    gap: 12.5rem;
-  }
-  .nav-right {
-    justify-content: center;
-    gap: 12.5rem;
-  }
-  nav a {
-    font-family: "Lobster", sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: opacity 0.2s ease-in-out;
-  }
-  nav a:hover {
+@media (hover: hover) and (pointer: fine) {
+  nav a:hover, #hero .social-links a:hover {
     opacity: 0.7;
   }
-  nav .logo {
-    color: #FFFFFF;
-    font-family: "Alfa Slab One", serif;
-    font-size: 32px;
-    font-weight: 400;
-    font-style: normal;
-  }
-  nav .tagline {
-    display: none;
-  }
-}
-@media only screen and (max-width: 374px) {
-  header {
-    background-color: #A0A0A0;
-    padding: 10px;
-  }
-  nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 780px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 3.5rem;
-    padding: 10px;
-  }
-  .nav-left {
-    display: none;
-  }
-  .nav-right {
-    display: none;
-  }
-  nav a {
-    font-family: "Lobster", sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: opacity 0.2s ease-in-out;
-  }
-  nav a:hover {
+  #hero img:hover {
     opacity: 0.7;
-  }
-  nav .logo {
-    color: #FFFFFF;
-    font-family: "Alfa Slab One", serif;
-    font-size: 32px;
-    font-weight: 400;
-    font-style: normal;
-  }
-  .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .tagline {
-    font-family: "Lobster", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #FFFFFF;
-    justify-content: center;
+    cursor: pointer;
   }
 }
 
