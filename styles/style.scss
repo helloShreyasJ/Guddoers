@@ -155,7 +155,6 @@ nav {
     align-items: center;
     text-align: center;
     width: 100%;
-    max-width: 1200px;
 
     .section-header {
         display: flex;
@@ -194,8 +193,120 @@ nav {
     }
 }
 
+// Host Section Mobile
+#host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        h1 {
+            @include font-lobster($weight-medium, $text-2xl); 
+        }
+
+        h2 {
+            @include font-lobster($weight-medium, $text-xl);
+        }
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        padding-bottom: 1.5rem;
+
+        a {
+            transition: opacity 0.2s ease;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: opacity 0.2s ease;
+    }
+
+    .about-host_container {
+        margin-top: 1.5rem;
+        text-align: start;
+        width: 70%;
+
+        p {
+            padding: 1.5rem;
+            @include font-roboto-condensed($weight-regular, $text-md);
+        }
+    }
+}
+
+// Studio Section Mobile
+#studio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        h1 {
+            @include font-lobster($weight-medium, $text-2xl); 
+        }
+
+        h2 {
+            @include font-lobster($weight-medium, $text-xl);
+        }
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        padding-bottom: 1.5rem;
+
+        a {
+            transition: opacity 0.2s ease;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transition: opacity 0.2s ease;
+    }
+
+    .btn-primary {
+        color: $color-white;
+        text-decoration: none;
+        @include font-roboto-condensed($weight-medium, $text-md);
+        border: $color-white;
+        padding: 8px 12px 8px 12px;
+        border-style: solid;
+        border-radius: 2.85px;
+        border-width: 0.7px;
+        width: 70%;
+    }
+}
+
 // Tablet Screens
 @media only screen and (min-width: map.get($breakpoints, 'tablet')) {
+    // Tablet Navbar
     nav {
         .nav-left, .nav-right {
             display: flex;
@@ -223,8 +334,10 @@ nav {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: end;
+            align-items: center;
             gap: 8rem;
+            width: 90%;
+            margin: 0 auto;
 
             .hero-header {
                 display: block;
@@ -237,6 +350,100 @@ nav {
             h2 {
                 font-size: $text-xl;
             }
+        }
+    }
+
+    // Tablet Host Section
+    #host {
+        gap: 1.5rem;
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            width: 90%;
+            margin: 0 auto;
+            align-items: center;
+
+            h2 {
+                @include font-lobster($weight-medium, $text-2xl);
+                grid-column: 2;
+                margin: 0;
+            }
+
+            .social-links {
+                justify-self: end;
+                justify-content: flex-end;
+                grid-column: 3;
+                align-items: center;
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    // Tablet Studio Section
+    #studio {
+        margin: 2.5rem auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+    
+        .section-header {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            width: 90%;
+            margin: 0 auto;
+            align-items: center;
+
+            h2 {
+                @include font-lobster($weight-medium, $text-2xl);
+                grid-column: 2;
+                margin: 0;
+            }
+            
+            .social-links {
+                justify-self: end;
+                justify-content: flex-end;
+                grid-column: 3;
+                align-items: center;
+                padding-bottom: 0;
+            }
+        }
+    
+        .studio-image_container {
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            gap: 1rem;
+            margin: 0 auto;
+            
+            img {
+                width: 50%;
+                transition: opacity 0.2s ease;
+            }
+        }
+
+        .btn-primary {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+        }
+    
+        .about-studio_container {
+            margin-top: 1.5rem;
+            text-align: start;
+            width: 60%;
+            margin: 0 auto;
+    
+            p {
+                padding: 0;
+                @include font-roboto-condensed($weight-regular, $text-md);
+            }
+        }
+
+        .hide-on-mobile {
+            display: block; // Reveals the hidden text/images on tablet
         }
     }
 }
@@ -304,11 +511,15 @@ nav {
 
 // Hover states set for trackpads
 @media (hover: hover) and (pointer: fine) {
-    nav a:hover, #hero .social-links a:hover {
+    nav a:hover, #hero .social-links a:hover,
+    #host .social-links a:hover,
+    #studio .social-links a:hover {
         opacity: 0.7;
     }
 
-    #hero img:hover {
+    #hero img:hover, 
+    #host img:hover,
+    #studio img:hover {
         opacity: 0.7;
         cursor: pointer;
     }
