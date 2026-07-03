@@ -136,6 +136,9 @@ header {
     width: 100%;
     border-bottom: 4px solid;
     border-image: linear-gradient(to right, $deep-red, $deep-yellow, $deep-green) 1;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 nav {
