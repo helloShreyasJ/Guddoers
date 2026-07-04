@@ -1,0 +1,35 @@
+function sendEmail(event) {
+    event.preventDefault();
+
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const idea = document.getElementById("idea").value;
+
+    const name = `${fname} ${lname}`;
+
+    const subject = `I'd like to come on the Podcast - ${name}`;
+
+    const body = `Hi Tony,
+
+My name is ${name}, and I'd love the opportunity to come on the podcast.
+
+Here's a little about me:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Podcast Idea:
+${idea}
+
+Looking forward to hearing from you. Thanks for your time!
+
+Best,
+${name}`;
+
+    window.location.href = `mailto:helloshreyasj@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    document.getElementById("onboardForm").reset();
+}
