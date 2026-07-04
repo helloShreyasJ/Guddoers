@@ -29,7 +29,25 @@ Looking forward to hearing from you. Thanks for your time!
 Best,
 ${name}`;
 
-    window.location.href = `mailto:helloshreyasj@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:helloshreyasj@gmail.com?subject=${encodeURIComponent(
+        subject
+    )}&body=${encodeURIComponent(body)}`;
 
     document.getElementById("onboardForm").reset();
 }
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    });
+});
