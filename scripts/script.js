@@ -29,7 +29,7 @@ Looking forward to hearing from you. Thanks for your time!
 Best,
 ${name}`;
 
-    window.location.href = `mailto:helloshreyasj@gmail.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:guddoers@gmail.com?subject=${encodeURIComponent(
         subject
     )}&body=${encodeURIComponent(body)}`;
 
@@ -49,5 +49,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
                 block: "start",
             });
         }
+    });
+});
+
+const youtubeChannel = 'https://www.youtube.com/@GuddoersMedia';
+
+document.querySelectorAll('.clickable').forEach(element => {
+    element.addEventListener('click', () => {
+        window.open(youtubeChannel, '_blank');
     });
 });

@@ -529,8 +529,11 @@ footer .copyright-bar {
     margin: 60px auto;
   }
   #host .about-host_container {
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
     margin: 2rem auto 0;
+    gap: 0.25rem;
   }
   #host .about-host_container p {
     text-align: center;
