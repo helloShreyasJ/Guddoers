@@ -247,10 +247,6 @@ img {
   font-size: 32px;
 }
 #studio .studio-image_container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
   margin-bottom: 24px;
 }
 #studio .btn-primary {
@@ -460,17 +456,15 @@ footer .copyright-bar {
     grid-column: 3;
     justify-content: flex-end;
   }
-  #studio .studio-image_container {
-    flex-direction: row;
-  }
-  #studio .studio-image_container img {
-    width: calc(50% - 8px);
+  #host .about-host_container,
+  #studio .about-host_container {
+    width: 70%;
   }
   #studio .hide-on-mobile {
     display: block;
   }
   #studio .about-studio_container {
-    width: 80%;
+    width: 70%;
     margin: 24px auto;
   }
   #studio .btn-primary {
@@ -540,6 +534,7 @@ footer .copyright-bar {
   }
   #studio {
     margin: 60px auto;
+    gap: 0.25rem;
   }
   #studio .about-studio_container {
     width: 70%;
@@ -573,6 +568,12 @@ footer .copyright-bar {
     width: 100%;
     max-width: none;
     margin-bottom: 24px;
+    transition: scale 0.1s ease;
+    transition: rotate 0.1s ease-in-out;
+  }
+  #creators ul li img:hover {
+    scale: 1.05;
+    rotate: 10deg;
   }
   #onboard {
     margin: 90px auto;
@@ -588,6 +589,14 @@ footer .copyright-bar {
   }
   footer .social-signoff {
     flex-direction: column;
+  }
+  footer .social-signoff a {
+    transition: scale 0.5s ease-in-out;
+    transition: rotate 4s ease;
+  }
+  footer .social-signoff a:hover {
+    rotate: 360deg;
+    scale: 1.2;
   }
   footer .copyright-bar {
     flex-direction: column;

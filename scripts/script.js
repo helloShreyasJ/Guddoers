@@ -59,3 +59,4 @@ document.querySelectorAll('.clickable').forEach(element => {
         window.open(youtubeChannel, '_blank');
     });
 });
+
