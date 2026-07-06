@@ -110,6 +110,13 @@ $breakpoints: (
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 * p, h1, h2, h3, span {
@@ -446,7 +453,7 @@ img {
         }
     }
 }
-
+// TODO(fix): Navigation here on mobile
 // Footer Mobile
 footer {
     width: 100%;
