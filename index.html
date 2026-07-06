@@ -17,6 +17,7 @@
 
 <body>
     <!-- Navigation Bar -->
+    <!--TODO: Navigation bar updates to Listen -->
     <header>
         <nav>
 
@@ -177,7 +178,6 @@
         </section>
 
         <hr>
-        <!--TODO(fix): Mandatory fields to fill form-->
         <!-- Onboard Section -->
         <section id="onboard" class="section-container">
             <form onsubmit="sendEmail(event)">
@@ -208,8 +208,8 @@
                 </div>
 
                 <div class="form-group full-width">
-                    <label for="idea">Brief us on your idea</label>
-                    <textarea name="idea" id="idea" cols="30" rows="6" required placeholder="My awesome idea is . . . (Max. length: 1000 words)" maxlength="1000"></textarea>
+                    <label for="idea">Brief us on your idea (Word Limit: 1000 words)</label>
+                    <textarea name="idea" id="idea" cols="30" rows="6" required placeholder="My awesome idea is . . ." maxlength="1000"></textarea>
                 </div>
 
                 <button type="submit" class="btn-primary">Submit</button>
