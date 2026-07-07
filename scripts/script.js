@@ -33,7 +33,7 @@ ${name}`;
         subject
     )}&body=${encodeURIComponent(body)}`;
 
-    document.getElementById("onboardForm").reset();
+    document.getElementById("onboard-form").reset();
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -60,3 +60,19 @@ document.querySelectorAll('.clickable').forEach(element => {
     });
 });
 
+const spinButtons = document.querySelectorAll(".spin-button");
+
+spinButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        
+        if (button.classList.contains("animate")) return;
+
+        button.classList.add("animate");
+
+        button.addEventListener(
+            "animationend", () => {
+                button.classList.remove("animate");
+            }, { once: true }
+        );
+    });
+});
