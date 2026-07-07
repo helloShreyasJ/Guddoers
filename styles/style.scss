@@ -177,7 +177,7 @@ header {
 }
 
 .spin-button.animate {
-    animation: spinY 1s ease-in-out;
+    animation: spinY 0.6s ease-in-out;
 }
 
 @keyframes spinY {
@@ -215,6 +215,9 @@ nav {
         color: $color-white;
         text-decoration: none;
         transition: opacity 0.2s ease-in-out;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .brand {
