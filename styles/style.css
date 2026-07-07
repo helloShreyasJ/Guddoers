@@ -255,8 +255,11 @@ img {
   text-align: center;
   margin-bottom: 40px;
 }
-#studio .hide-on-mobile {
+#studio .about-studio_container .hide-on-mobile {
   display: none;
+}
+#studio .about-studio_container #studio-amenities_para {
+  margin-bottom: 1.5rem;
 }
 #studio .section-header {
   display: flex;
@@ -491,6 +494,9 @@ footer .copyright-bar {
     width: 70%;
     margin: 24px auto;
   }
+  #studio .about-studio_container .hide-on-mobile {
+    display: block;
+  }
   #studio .btn-primary {
     width: 300px;
     margin: 0 auto;
@@ -562,6 +568,9 @@ footer .copyright-bar {
   }
   #studio .about-studio_container {
     width: 70%;
+  }
+  #studio .about-studio_container .hide-on-mobile {
+    display: block;
   }
   #studio .about-studio_container p {
     text-align: center;
