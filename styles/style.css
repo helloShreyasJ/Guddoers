@@ -106,7 +106,7 @@ header {
 }
 
 .spin-button.animate {
-  animation: spinY 0.6s ease-in-out;
+  animation: spinY 0.8s ease-in-out;
 }
 
 @keyframes spinY {
