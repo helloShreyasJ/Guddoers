@@ -572,6 +572,51 @@ footer {
 }
 
 
+// Shop Mobile
+#shop {
+    margin: 60px auto;
+    display: flex;
+    max-width: 650px;
+    flex-direction: column;
+    scroll-margin-top: 80px;
+    gap: 24px;
+
+    .shop_container {
+        width: 100%;
+        border: 1px solid $color-white;
+        border-radius: 30px;
+        padding: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;    
+        
+            #coming-soon_header {
+                @include font-lobster($weight-medium, 58px);
+                display: block;
+                line-height: 1.1;
+                margin: 0;
+            }
+            
+            #coming-soon_subheader {
+                @include font-roboto-condensed($weight-regular, $text-base);
+                display: block;
+                margin-bottom: 16px;
+            }
+
+            .btn-primary {
+                width: 100%;
+            }
+    }
+    .social-links {
+        width: 100%;
+        border: 1px solid $color-white;
+        border-radius: 50px;
+        padding: 16px 24px;
+        justify-content: center;    }
+}
+
 // Tablet Screens
 @media only screen and (min-width: map.get($breakpoints, 'tablet')) {
     // Scroll padding for tablets
@@ -728,6 +773,51 @@ footer {
                 @include font-roboto-condensed($weight-regular, $text-base);
             }
         }
+    }
+
+    // Tablet Shop
+    #shop {
+        margin: 60px auto;
+        display: flex;
+        max-width: 650px;
+        flex-direction: column;
+        scroll-margin-top: 80px;
+        gap: 24px;
+
+        .shop_container {
+            width: 100%;
+            border: 1px solid $color-white;
+            border-radius: 30px;
+            padding: 50px 128px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;    
+            
+                #coming-soon_header {
+                    @include font-lobster($weight-medium, 58px);
+                    display: block;
+                    line-height: 1.1;
+                    margin: 0;
+                }
+                
+                #coming-soon_subheader {
+                    @include font-roboto-condensed($weight-regular, $text-base);
+                    display: block;
+                    margin-bottom: 16px;
+                }
+
+                .btn-primary {
+                    width: 100%;
+                }
+        }
+        .social-links {
+            width: 100%;
+            border: 1px solid $color-white;
+            border-radius: 50px;
+            padding: 16px 24px;
+            justify-content: center;    }
     }
 }
 
@@ -915,6 +1005,51 @@ footer {
             p {
                 @include font-roboto-condensed($weight-regular, $text-md);
             }
+        }
+    }
+
+     // Tablet Shop
+     #shop {
+        margin: 60px auto;
+        display: flex;
+        max-width: 650px;
+        flex-direction: column;
+        scroll-margin-top: 80px;
+        gap: 24px;
+
+        .shop_container {
+            width: 100%;
+            border: 1px solid $color-white;
+            border-radius: 30px;
+            padding: 50px 198px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;    
+            
+                #coming-soon_header {
+                    @include font-lobster($weight-medium, 88px);
+                    display: block;
+                    margin: 0;
+                }
+                
+                #coming-soon_subheader {
+                    @include font-roboto-condensed($weight-regular, $text-base);
+                    display: block;
+                    margin-bottom: 16px;
+                }
+
+                .btn-primary {
+                    width: 100%;
+                }
+        }
+        .social-links {
+            width: 100%;
+            border: 1px solid $color-white;
+            border-radius: 50px;
+            padding: 16px 24px;
+            justify-content: center;
         }
     }
 }
