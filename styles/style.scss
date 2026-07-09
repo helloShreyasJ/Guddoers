@@ -521,6 +521,56 @@ footer {
     }
 }
 
+// About Mobile
+#about {
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-margin-top: 80px;
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        width: 100%;
+
+        .about-header {
+            @include font-lobster($weight-medium, $text-2xl);
+            display: none;
+            margin: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+    }
+
+    .about-image {
+        margin: 40px auto;
+        max-width: 90%;
+        height: auto;
+    }
+
+    .about-section_container {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+
+        h2 {
+            @include font-lobster($weight-medium, $text-3xl);
+        }
+
+        p {
+            @include font-roboto-condensed($weight-regular, $text-base);
+        }
+    }
+}
+
 
 // Tablet Screens
 @media only screen and (min-width: map.get($breakpoints, 'tablet')) {
@@ -637,6 +687,47 @@ footer {
 
     .show-on-mobile {
         display: none;
+    }
+
+    // Tablet About 
+    #about {
+        .section-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .social-links {
+                display: flex;
+                gap: 15px;
+            }
+
+            .about-header {
+                display: block;
+            }
+        }
+
+        .about-image {
+            margin: 40px auto;
+            max-width: 70%;
+            height: auto;
+            display: block;
+        }
+
+        .about-section_container {
+            margin: 1rem;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+
+            h2 {
+                @include font-lobster($weight-medium, $text-2xl);
+            }
+
+            p {
+                @include font-roboto-condensed($weight-regular, $text-base);
+            }
+        }
     }
 }
 
@@ -796,6 +887,34 @@ footer {
 
         .copyright-bar {
             flex-direction: column;
+        }
+    }
+
+    // Desktop About 
+    #about {
+        .section-header {
+            gap: 2rem;
+
+            .about-header {
+                @include font-lobster($weight-medium, $text-2xl);
+                display: block;
+                margin: 0;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 15px;
+            }
+        }
+
+        .about-section_container {
+            h2 {
+                @include font-lobster($weight-medium, $text-3xl);
+            }
+
+            p {
+                @include font-roboto-condensed($weight-regular, $text-md);
+            }
         }
     }
 }
