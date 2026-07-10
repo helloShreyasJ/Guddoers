@@ -76,3 +76,18 @@ spinButtons.forEach((button) => {
         );
     });
 });
+
+function showMenu() {
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
+    const menuBtn = document.getElementById('menu-button');
+
+    header.classList.toggle('mobile-active');
+    nav.classList.toggle('mobile-active');
+
+    if (nav.classList.contains('mobile-active')) {
+        menuBtn.src = "assets/icons/close_button.svg"; 
+    } else {
+        menuBtn.src = "assets/icons/hamburger_menu.svg";
+    }
+}

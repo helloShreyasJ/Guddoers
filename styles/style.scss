@@ -169,6 +169,10 @@ header {
     position: sticky;
     top: 0;
     z-index: 1;
+
+    &.mobile-active {
+        background-color: $color-black;
+    }
 }
 
 .spin-button {
@@ -190,9 +194,8 @@ header {
 }
 
 nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -220,11 +223,22 @@ nav {
         align-items: center;
     }
 
+    #menu-button {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        width: 32px;
+        cursor: pointer;
+        align-self: start;
+        margin-top: 8px;
+    }
+
     .brand {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
 
         .logo {
             color: $color-white;
@@ -239,9 +253,31 @@ nav {
     }
 
     .tagline {
+        grid-column: 2;
+        grid-row: 2;
         @include font-lobster($weight-regular, $text-base);
         color: $color-white;
         text-align: center;
+    }
+
+    &.mobile-active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .brand, .tagline {
+            display: none;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
     }
 }
 
@@ -626,6 +662,10 @@ footer {
         }
     }
 
+    header.mobile-active {
+        background-color: $color-secondary;
+    }
+
     .section-container {
         max-width: 90%;
         margin-left: auto;
@@ -634,12 +674,49 @@ footer {
 
     // Tablet Navbar
     nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+
+        &.mobile-active {
+            display: grid; 
+            min-height: auto;
+            padding-top: 0;
+            .brand {
+                display: flex;
+            }
+        }
+
+        #menu-button {
+            display: none;
+        }
+
+        .brand {
+            grid-column: 2;
+            grid-row: 1;
+            margin-top: 0;
+        }
+
+        .nav-left {
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: center;
+        }
+
+        .nav-right {
+            grid-column: 3;
+            grid-row: 1;
+            justify-self: center;
+        }
 
         .nav-left,
         .nav-right {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0;
+            margin: 0;
         }
 
         .tagline {
@@ -775,7 +852,7 @@ footer {
         }
     }
 
-    // Tablet Shop
+    // Desktop Shop
     #shop {
         margin: 60px auto;
         display: flex;
@@ -836,9 +913,10 @@ footer {
     }
 
     nav {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        max-width: $desktop-content-width;
+        .nav-left, .nav-right {
+            flex-direction: row;
+            gap: 8rem;
+        }
 
         .nav-left {
             justify-content: flex-end;
