@@ -86,8 +86,8 @@ function showMenu() {
     nav.classList.toggle('mobile-active');
 
     if (nav.classList.contains('mobile-active')) {
-        menuBtn.src = "assets/icons/close_button.svg"; 
+        menuBtn.src = "/assets/icons/close_button.svg"; 
     } else {
-        menuBtn.src = "assets/icons/hamburger_menu.svg";
+        menuBtn.src = "/assets/icons/hamburger_menu.svg";
     }
 }
