@@ -1,3 +1,38 @@
+let isBookingMode = false;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('book-studio-toggle');
+    const formHeader = document.getElementById('form-header');
+    const ideaContainer = document.getElementById('idea-container');
+    const ideaInput = document.getElementById('idea');
+    const rentalInfo = document.getElementById('studio-rental-info');
+    const amenitiesPara = document.getElementById('studio-amenities_para');
+
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            isBookingMode = !isBookingMode;
+
+            if (isBookingMode) {
+                toggleButton.textContent = "Be a Guest";
+                formHeader.textContent = "🎙️ Book the Studio";
+                ideaContainer.style.display = "none";
+                ideaInput.removeAttribute("required");
+
+                if (rentalInfo) rentalInfo.style.display = "block";
+                if (amenitiesPara) amenitiesPara.style.display = "none";
+            } else {
+                toggleButton.textContent = "Book the Studio";
+                formHeader.textContent = "🎙️ Be a Guest";
+                ideaContainer.style.display = "block";
+                ideaInput.setAttribute("required", "required");
+
+                if (rentalInfo) rentalInfo.style.display = "none";
+                if (amenitiesPara) amenitiesPara.style.display = "block";
+            }
+        });
+    }
+});
+
 function sendEmail(event) {
     event.preventDefault();
 
@@ -5,13 +40,33 @@ function sendEmail(event) {
     const lname = document.getElementById("lname").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
-    const idea = document.getElementById("idea").value;
+    const idea = document.getElementById("idea") ? document.getElementById("idea").value : "";
 
     const name = `${fname} ${lname}`;
 
-    const subject = `I'd like to come on the Podcast - ${name}`;
+    let subject, body;
 
-    const body = `Hi Tony,
+    if (isBookingMode) {
+        subject = `Studio Booking Request - ${name}`;
+        body = `Hi Tony,
+
+My name is ${name}, and I'd like to book the studio.
+
+Here are my details:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Please let me know your available dates and times.
+
+Looking forward to hearing from you. Thanks for your time!
+
+Best,
+${name}`;
+    } else {
+        subject = `I'd like to come on the Podcast - ${name}`;
+        body = `Hi Tony,
 
 My name is ${name}, and I'd love the opportunity to come on the podcast.
 
@@ -28,6 +83,7 @@ Looking forward to hearing from you. Thanks for your time!
 
 Best,
 ${name}`;
+    }
 
     window.location.href = `mailto:guddoers@gmail.com?subject=${encodeURIComponent(
         subject
@@ -64,7 +120,7 @@ const spinButtons = document.querySelectorAll(".spin-button");
 
 spinButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        
+
         if (button.classList.contains("animate")) return;
 
         button.classList.add("animate");
@@ -86,7 +142,7 @@ function showMenu() {
     nav.classList.toggle('mobile-active');
 
     if (nav.classList.contains('mobile-active')) {
-        menuBtn.src = "/assets/icons/close_button.svg"; 
+        menuBtn.src = "/assets/icons/close_button.svg";
     } else {
         menuBtn.src = "/assets/icons/hamburger_menu.svg";
     }
