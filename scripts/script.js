@@ -1,3 +1,4 @@
+// Switch between Booking Mode and Be a Guest 
 let isBookingMode = false;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,8 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Scroll animation set up
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+
+                entry.target.style.transitionDelay = `${index * 0.1}s`;
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('main > section, main > hr');
+    animateElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+    });
 });
 
+// Send email function 
 function sendEmail(event) {
     event.preventDefault();
 
@@ -50,44 +76,42 @@ function sendEmail(event) {
         subject = `Studio Booking Request - ${name}`;
         body = `Hi Tony,
 
-My name is ${name}, and I'd like to book the studio.
+        My name is ${name}, and I'd like to book the studio.
 
-Here are my details:
+        Here are my details:
 
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
 
-Please let me know your available dates and times.
+        Please let me know your available dates and times.
 
-Looking forward to hearing from you. Thanks for your time!
+        Looking forward to hearing from you. Thanks for your time!
 
-Best,
-${name}`;
+        Best,
+        ${name}`;
     } else {
         subject = `I'd like to come on the Podcast - ${name}`;
         body = `Hi Tony,
 
-My name is ${name}, and I'd love the opportunity to come on the podcast.
+        My name is ${name}, and I'd love the opportunity to come on the podcast.
 
-Here's a little about me:
+        Here's a little about me:
 
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
 
-Podcast Idea:
-${idea}
+        Podcast Idea:
+        ${idea}
 
-Looking forward to hearing from you. Thanks for your time!
+        Looking forward to hearing from you. Thanks for your time!
 
-Best,
-${name}`;
+        Best,
+        ${name}`;
     }
 
-    window.location.href = `mailto:guddoers@gmail.com?subject=${encodeURIComponent(
-        subject
-    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:guddoers@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     document.getElementById("onboard-form").reset();
 }
@@ -147,3 +171,22 @@ function showMenu() {
         menuBtn.src = "/assets/icons/hamburger_menu.svg";
     }
 }
+
+// Hide navigation bar on scroll up
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (!header.classList.contains('mobile-active')) {
+        if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+
+            header.classList.add('nav-hidden');
+        } else {
+
+            header.classList.remove('nav-hidden');
+        }
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});

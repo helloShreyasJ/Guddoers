@@ -93,6 +93,18 @@ main {
   padding: 0 15px;
 }
 
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 header {
   background-color: #1F6ABB;
   padding: 15px;
@@ -102,6 +114,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 1;
+  transition: transform 0.3s ease-in-out;
+}
+header.nav-hidden {
+  transform: translateY(-100%);
 }
 header.mobile-active {
   background-color: #000000;
