@@ -190,3 +190,20 @@ window.addEventListener('scroll', () => {
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
+// Close mobile menu on resize to larger screens
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+        const header = document.querySelector('header');
+        const nav = document.querySelector('nav');
+        const menuBtn = document.getElementById('menu-button');
+        
+        if (header.classList.contains('mobile-active')) {
+            header.classList.remove('mobile-active');
+            nav.classList.remove('mobile-active');
+            if (menuBtn) {
+                menuBtn.src = "/assets/icons/hamburger_menu.svg";
+            }
+        }
+    }
+});

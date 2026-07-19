@@ -4,7 +4,8 @@
 $turquoise: #1ABC9C;
 $emerald: #2ECC71;
 $peter-river: #3498DB;
-$ocean-blue: #1F6ABB;
+// $ocean-blue: #1F6ABB;
+$ocean-blue: #001638;
 $amethyst: #9B59B6;
 $sunflower: #F1C40F;
 $nice-red: #E74C3C;
@@ -167,7 +168,7 @@ main {
 .animate-on-scroll {
     opacity: 0;
     transform: translateX(-50px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     will-change: opacity, transform;
 }
 
@@ -194,6 +195,10 @@ header {
 
     &.mobile-active {
         background-color: $color-black;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        border-bottom: none;
     }
 }
 
@@ -232,7 +237,8 @@ nav {
     }
 
     .nav-left,
-    .nav-right {
+    .nav-right,
+    .nav-social-links {
         display: none;
     }
 
@@ -270,7 +276,6 @@ nav {
 
         .guddoers-logo {
             width: 62px;
-            height: 45px;
             padding-left: 0.5rem;
         }
     }
@@ -287,7 +292,9 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        justify-content: center;
+        flex-grow: 1;
+        gap: 3rem;
 
         .brand,
         .tagline {
@@ -299,9 +306,26 @@ nav {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            gap: 3rem;
             margin: 0;
             padding: 0;
+        }
+
+        .nav-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            border-top: 3px solid;
+            border-image: linear-gradient(to right, $deep-red, $deep-yellow, $deep-green) 1;
+            padding-top: 2rem;
+            margin-top: auto;
+            margin-bottom: 2rem;
+            
+            img {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 }
