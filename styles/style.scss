@@ -182,12 +182,14 @@ header {
     background-color: $color-secondary;
     padding: 15px;
     width: 100%;
-    border-bottom: 3px solid;
+    border-bottom: 3px solid transparent;
     border-image: linear-gradient(to right, $deep-red, $deep-yellow, $deep-green) 1;
     position: sticky;
     top: 0;
-    z-index: 1;
-    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+    height: 95px;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out, background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
 
     &.nav-hidden {
         transform: translateY(-100%);
@@ -196,9 +198,7 @@ header {
     &.mobile-active {
         background-color: $color-black;
         height: 100vh;
-        display: flex;
-        flex-direction: column;
-        border-bottom: none;
+        border-image: none;
     }
 }
 
@@ -239,11 +239,51 @@ nav {
     .nav-left,
     .nav-right,
     .nav-social-links {
-        display: none;
+        display: flex;
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        left: 0;
+        right: 0;
+    }
+
+    .nav-left,
+    .nav-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+        margin: 0;
+        padding-left: 20vw;
+    }
+
+    .nav-left {
+        top: 20vh;
+    }
+
+    .nav-right {
+        top: 45vh;
+    }
+
+    .nav-social-links {
+        bottom: 10vh;
+        justify-content: center;
+        gap: 2rem;
+        width: 80%;
+        margin: 0 auto;
+        border-top: 3px solid;
+        border-image: linear-gradient(to right, $deep-red, $deep-yellow, $deep-green) 1;
+        padding-top: 2rem;
+
+        img {
+            width: 24px;
+            height: 24px;
+        }
     }
 
     a {
-        @include font-lobster($weight-regular, $text-lg);
+        @include font-lobster($weight-regular, $text-2xl);
         color: $color-white;
         text-decoration: none;
         transition: opacity 0.2s ease-in-out;
@@ -268,6 +308,7 @@ nav {
         display: flex;
         flex-direction: row;
         align-items: center;
+        transition: opacity 0.3s ease-in-out;
 
         .logo {
             color: $color-white;
@@ -275,7 +316,7 @@ nav {
         }
 
         .guddoers-logo {
-            width: 62px;
+            width: 156px;
             padding-left: 0.5rem;
         }
     }
@@ -286,46 +327,42 @@ nav {
         @include font-lobster($weight-regular, $text-base);
         color: $color-white;
         text-align: center;
+        transition: opacity 0.3s ease-in-out;
     }
 
     &.mobile-active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 1;
-        gap: 3rem;
+        display: block;
 
         .brand,
         .tagline {
-            display: none;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
         .nav-left,
         .nav-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-            margin: 0;
-            padding: 0;
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
         }
 
+        .nav-left {
+            margin-top: 15vh;
+        }
+
+        .nav-right {
+            margin-top: 3rem;
+        }
+
+        .nav-left,
+        .nav-right,
         .nav-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            width: 100%;
-            border-top: 3px solid;
-            border-image: linear-gradient(to right, $deep-red, $deep-yellow, $deep-green) 1;
-            padding-top: 2rem;
-            margin-top: auto;
-            margin-bottom: 2rem;
-            
-            img {
-                width: 24px;
-                height: 24px;
-            }
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
     }
 }
@@ -338,6 +375,8 @@ img {
 
 .social-links {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     align-items: center;
 
@@ -382,8 +421,9 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-bottom: 40px;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
 
     .section-header {
         display: flex;
@@ -406,6 +446,11 @@ img {
             @include font-roboto-condensed($weight-regular, $text-md);
             text-align: center;
         }
+    }
+
+    .btn-primary {
+        margin-top: 0.5rem;
+        width: 100%;
     }
 }
 
@@ -454,6 +499,19 @@ img {
         h2 {
             @include font-lobster($weight-medium, $text-2xl);
         }
+    }
+
+    // Rental information initially hidden
+    #studio-rental-info {
+        display: none;
+        margin-top: 16px;
+    }
+
+    // Secondary style for the booking toggle button
+    #book-studio-toggle {
+        background-color: $color-white;
+        color: $color-black;
+        margin-top: 16px;
     }
 
     .studio-image_container {
@@ -654,9 +712,10 @@ footer {
     }
 
     .about-image {
-        margin: 40px auto;
+        margin: 20px auto;
         max-width: 90%;
         height: auto;
+        transition: opacity 0.2s ease;
     }
 
     .about-section_container {
@@ -732,6 +791,11 @@ footer {
         }
     }
 
+    header {
+        height: auto;
+        overflow: visible;
+    }
+
     header.mobile-active {
         background-color: $color-secondary;
     }
@@ -746,16 +810,11 @@ footer {
     nav {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
-        align-items: center;
 
         &.mobile-active {
             display: grid;
             min-height: auto;
             padding-top: 0;
-
-            .brand {
-                display: flex;
-            }
         }
 
         #menu-button {
@@ -766,18 +825,23 @@ footer {
             grid-column: 2;
             grid-row: 1;
             margin-top: 0;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+
+            .guddoers-logo {
+                width: 266px;
+            }
         }
 
         .nav-left {
             grid-column: 1;
             grid-row: 1;
-            justify-self: center;
         }
 
         .nav-right {
             grid-column: 3;
             grid-row: 1;
-            justify-self: center;
         }
 
         .nav-left,
@@ -788,6 +852,14 @@ footer {
             gap: 0.5rem;
             padding: 0;
             margin: 0;
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .nav-social-links {
+            display: none;
         }
 
         .tagline {
@@ -798,9 +870,10 @@ footer {
     // Hero Tablet
     #hero {
         .section-header {
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column-reverse;
+            justify-content: center;
             align-items: center;
+            gap: 16px;
 
             .hero-header {
                 display: block;
@@ -817,30 +890,33 @@ footer {
     #host,
     #studio {
         .section-header {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 16px;
             width: 100%;
 
             h2 {
                 @include font-lobster($weight-medium, $text-2xl);
-                grid-column: 2;
                 margin: 0;
             }
 
             .social-links {
-                grid-column: 3;
-                justify-content: flex-end;
+                justify-content: center;
             }
         }
 
         .about-host_container {
             width: 70%;
         }
+
+        .btn-primary {
+            width: auto;
+        }
     }
 
     // Studio Tablet
     #studio {
-
         .hide-on-mobile {
             display: block;
         }
@@ -887,8 +963,9 @@ footer {
     #about {
         .section-header {
             display: flex;
-            flex-direction: row;
-            justify-content: center;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 16px;
 
             .social-links {
                 display: flex;
@@ -901,7 +978,7 @@ footer {
         }
 
         .about-image {
-            margin: 40px auto;
+            margin: 20px auto;
             max-width: 70%;
             height: auto;
             display: block;
@@ -929,7 +1006,8 @@ footer {
         margin: 60px auto;
         display: flex;
         max-width: 650px;
-        flex-direction: column;
+        flex-direction: column-reverse;
+        align-items: center;
         scroll-margin-top: 80px;
         gap: 24px;
 
@@ -1219,7 +1297,8 @@ footer {
 
     #hero img.hero-image:hover,
     #host>img:hover,
-    #studio .studio-image_container img:hover {
+    #studio .studio-image_container img:hover,
+    #about img:hover {
         opacity: 0.85;
         cursor: pointer;
     }

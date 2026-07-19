@@ -74,7 +74,13 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
+    <!-- 
+        ========================================================
+        NAVIGATION BAR
+        ========================================================
+        Sticky navigation containing the logo, links to sections, 
+        social media icons, and mobile menu toggle.
+    -->
     <header>
         <nav>
             <img src="/assets/icons/hamburger_menu.svg"
@@ -99,22 +105,19 @@
                 <li><a href="#creators" class="spin-button">Creators</a></li>
                 <li><a href="pages/shop.html" class="spin-button">Shop</a></li>
             </ul>
-            
-            <div class="social-links nav-social-links">
-                <a href="https://www.facebook.com/people/Guddoers-Media/61567696528747/" target="_blank"
-                    rel="noopener noreferrer"><img src="assets/icons/facebook.svg" alt="Guddoers on Facebook"></a>
-                <a href="https://www.instagram.com/guddoers/" target="_blank" rel="noopener noreferrer"><img
-                        src="assets/icons/instagram.svg" alt="Guddoers on Instagram"></a>
-                <a href="https://www.youtube.com/@GuddoersMedia" target="_blank" rel="noopener noreferrer"><img
-                        src="assets/icons/youtube.svg" alt="Guddoers on YouTube"></a>
-            </div>
 
         </nav>
     </header>
 
     <main>
 
-        <!-- Hero Section -->
+        <!-- 
+            ========================================================
+            HERO SECTION
+            ========================================================
+            Main landing section featuring the studio's primary 
+            tagline and hero image.
+        -->
         <section id="hero" class="section-container">
 
             <div class="section-header">
@@ -127,6 +130,10 @@
                             src="assets/icons/instagram.svg" alt="Guddoers on Instagram"></a>
                     <a href="https://www.youtube.com/@GuddoersMedia" target="_blank" rel="noopener noreferrer"><img
                             src="assets/icons/youtube.svg" alt="Guddoers on YouTube"></a>
+                    <a href="https://open.spotify.com/show/033LAQNqcGApVjnQAtV6ba?si=a193d5bacb36463b" target="_blank"
+                        rel="noopener noreferrer"><img src="assets/icons/spotify.svg" alt="Guddoers on Spotify"></a>
+                    <a href="https://www.tiktok.com/@guddoersmedia" target="_blank" rel="noopener noreferrer"><img
+                            src="assets/icons/tiktok.svg" alt="Guddoers on TikTok"></a>
                 </div>
             </div>
 
@@ -134,7 +141,12 @@
                 class="hero-image clickable">
         </section>
 
-        <!-- Host Section -->
+        <!-- 
+            ========================================================
+            HOST SECTION
+            ========================================================
+            Introduction and biography of the podcast host, Tony Morris.
+        -->
         <section id="host" class="section-container">
             <div class="section-header">
                 <h2>Tony Morris</h2>
@@ -146,12 +158,16 @@
                             src="assets/icons/instagram.svg" alt="Guddoers on Instagram"></a>
                     <a href="https://www.youtube.com/@GuddoersMedia" target="_blank" rel="noopener noreferrer"><img
                             src="assets/icons/youtube.svg" alt="Guddoers on YouTube"></a>
+                    <a href="https://open.spotify.com/show/033LAQNqcGApVjnQAtV6ba?si=a193d5bacb36463b" target="_blank"
+                        rel="noopener noreferrer"><img src="assets/icons/spotify.svg" alt="Guddoers on Spotify"></a>
+                    <a href="https://www.tiktok.com/@guddoersmedia" target="_blank" rel="noopener noreferrer"><img
+                            src="assets/icons/tiktok.svg" alt="Guddoers on TikTok"></a>
                 </div>
 
             </div>
 
-            <img src="assets/images/host-image.png" alt="Tony Morris, Founder and Host of the Guddoers Podcast"
-                class="clickable">
+            <img src="/assets/images/host-image.png" alt="Tony Morris, Founder and Host of the Guddoers Podcast"
+                class="clickable" id="host-image">
 
             <div class="about-host_container">
                 <p>
@@ -169,9 +185,17 @@
                 </p>
             </div>
 
+            <a href="pages/about.html" rel="noopener noreferrer" class="btn-primary read-more_button">Read on our Vision
+                & Values</a>
         </section>
 
-        <!-- Studio Section -->
+        <!-- 
+            ========================================================
+            STUDIO SECTION
+            ========================================================
+            Information regarding the Guddoers podcast studio, 
+            available amenities, and studio rental pricing.
+        -->
         <section id="studio" class="section-container">
             <div class="section-header">
 
@@ -184,6 +208,10 @@
                             src="assets/icons/instagram.svg" alt="Guddoers on Instagram"></a>
                     <a href="https://www.youtube.com/@GuddoersMedia" target="_blank" rel="noopener noreferrer"><img
                             src="assets/icons/youtube.svg" alt="Guddoers on YouTube"></a>
+                    <a href="https://open.spotify.com/show/033LAQNqcGApVjnQAtV6ba?si=a193d5bacb36463b" target="_blank"
+                        rel="noopener noreferrer"><img src="assets/icons/spotify.svg" alt="Guddoers on Spotify"></a>
+                    <a href="https://www.tiktok.com/@guddoersmedia" target="_blank" rel="noopener noreferrer"><img
+                            src="assets/icons/tiktok.svg" alt="Guddoers on TikTok"></a>
                 </div>
 
             </div>
@@ -204,7 +232,8 @@
                     professionally soundproofed
                     recording space, premium studio lighting, industry-grade cameras and microphones.</p>
 
-                <div id="studio-rental-info" style="display: none; margin-top: 16px;">
+                <!-- Detailed rental information toggled via JavaScript -->
+                <div id="studio-rental-info">
                     <h3><strong>Studio Rental</strong></h3>
                     <p>Record your next podcast in a professional studio designed for creators, businesses, and
                         storytellers.</p>
@@ -234,16 +263,22 @@
             </div>
 
             <a href="https://www.youtube.com/@GuddoersMedia" target="_blank" rel="noopener noreferrer"
-                class="btn-primary">Watch our latest on
-                YouTube</a>
-            <button id="book-studio-toggle" class="btn-primary"
-                style="background-color: white; color: black; margin-top: 16px;">Book the Studio</button>
+                class="btn-primary">Watch our latest on YouTube</a>
+
+            <!-- Button to toggle the display of studio rental details -->
+            <button id="book-studio-toggle" class="btn-primary">Book the Studio</button>
 
         </section>
 
         <hr>
 
-        <!-- Creators Section -->
+        <!-- 
+            ========================================================
+            CREATORS SECTION
+            ========================================================
+            Highlights the benefits for creators who join the podcast, 
+            such as audience growth, monetization, and networking.
+        -->
         <section id="creators" class="section-container">
 
             <h2>Home for Creators Who Shape Community</h2>
@@ -284,7 +319,13 @@
         </section>
 
         <hr>
-        <!-- Onboard Section -->
+        <!-- 
+            ========================================================
+            ONBOARD SECTION
+            ========================================================
+            Contact form for users to apply to be a guest on the podcast 
+            or request to book the studio. Handles form submission via JS.
+        -->
         <section id="onboard" class="section-container">
             <form onsubmit="sendEmail(event)" id="onboard-form">
                 <h2 id="form-header">🎙️ Be a Guest</h2>
@@ -331,7 +372,12 @@
 
     <footer>
 
-        <!-- Social Signoff-->
+        <!-- 
+            ========================================================
+            SOCIAL SIGNOFF
+            ========================================================
+            Footer call-to-action encouraging social media engagement.
+        -->
         <div class="social-signoff section-container">
 
             <h2>See you there!</h2>
@@ -345,11 +391,20 @@
                         src="assets/icons/instagram.svg" alt="Guddoers on Instagram"></a>
                 <a href="https://www.youtube.com/@GuddoersMedia" target="_blank" rel="noopener noreferrer"><img
                         src="assets/icons/youtube.svg" alt="Guddoers on YouTube"></a>
+                <a href="https://open.spotify.com/show/033LAQNqcGApVjnQAtV6ba?si=a193d5bacb36463b" target="_blank"
+                    rel="noopener noreferrer"><img src="assets/icons/spotify.svg" alt="Guddoers on Spotify"></a>
+                <a href="https://www.tiktok.com/@guddoersmedia" target="_blank" rel="noopener noreferrer"><img
+                        src="assets/icons/tiktok.svg" alt="Guddoers on TikTok"></a>
             </div>
 
         </div>
 
-        <!-- Copyright Bar-->
+        <!-- 
+            ========================================================
+            COPYRIGHT BAR
+            ========================================================
+            Legal information, contact details, and site credits.
+        -->
         <div class="copyright-bar section-container">
 
             <span>Copyright Guddoers Media, 2026</span>

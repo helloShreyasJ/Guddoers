@@ -207,3 +207,20 @@ window.addEventListener('resize', () => {
         }
     }
 });
+
+// Close mobile menu when a navigation link is clicked
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        const header = document.querySelector('header');
+        const nav = document.querySelector('nav');
+        const menuBtn = document.getElementById('menu-button');
+        
+        if (header.classList.contains('mobile-active')) {
+            header.classList.remove('mobile-active');
+            nav.classList.remove('mobile-active');
+            if (menuBtn) {
+                menuBtn.src = "/assets/icons/hamburger_menu.svg";
+            }
+        }
+    });
+});
