@@ -1,7 +1,3 @@
-:root {
-  --scroll-offset: 80px;
-}
-
 .btn-primary {
   color: #FFFFFF;
   background: transparent;
@@ -65,7 +61,7 @@ span {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--scroll-offset);
+  scroll-padding-top: 80px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -240,6 +236,7 @@ nav .brand .logo {
 nav .brand .guddoers-logo {
   width: 156px;
   padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 nav .tagline {
   grid-column: 2;
@@ -305,11 +302,11 @@ img {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  scroll-margin-top: var(--scroll-offset);
+  scroll-margin-top: 80px;
 }
 #hero .section-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
@@ -339,7 +336,7 @@ img {
 }
 #host .section-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
@@ -398,7 +395,7 @@ img {
 }
 #studio .section-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
@@ -430,7 +427,6 @@ img {
   align-items: center;
   margin: 40px auto;
   width: 100%;
-  scroll-margin-top: var(--scroll-offset);
 }
 #creators h2 {
   font-family: "Lobster", sans-serif;
@@ -585,11 +581,11 @@ footer .copyright-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  scroll-margin-top: var(--scroll-offset);
+  scroll-margin-top: 80px;
 }
 #about .section-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
@@ -636,7 +632,7 @@ footer .copyright-bar {
   display: flex;
   max-width: 650px;
   flex-direction: column;
-  scroll-margin-top: var(--scroll-offset);
+  scroll-margin-top: 80px;
   gap: 24px;
 }
 #shop .shop_container {
@@ -679,8 +675,8 @@ footer .copyright-bar {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  :root {
-    --scroll-offset: 180px;
+  html {
+    scroll-padding-top: 180px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -856,7 +852,7 @@ footer .copyright-bar {
     max-width: 650px;
     flex-direction: column-reverse;
     align-items: center;
-    scroll-margin-top: var(--scroll-offset);
+    scroll-margin-top: 80px;
     gap: 24px;
   }
   #shop .shop_container {
@@ -1047,7 +1043,7 @@ footer .copyright-bar {
     display: flex;
     max-width: 650px;
     flex-direction: column;
-    scroll-margin-top: var(--scroll-offset);
+    scroll-margin-top: 80px;
     gap: 24px;
   }
   #shop .shop_container {

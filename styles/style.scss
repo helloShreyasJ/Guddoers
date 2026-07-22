@@ -318,6 +318,7 @@ nav {
         .guddoers-logo {
             width: 156px;
             padding-left: 0.5rem;
+            padding-bottom: 0.5rem;
         }
     }
 
@@ -396,7 +397,7 @@ img {
 
     .section-header {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 16px;
         margin-bottom: 24px;
@@ -427,7 +428,7 @@ img {
 
     .section-header {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 16px;
         margin-bottom: 24px;
@@ -491,7 +492,7 @@ img {
 
     .section-header {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 16px;
         margin-bottom: 24px;
@@ -693,7 +694,7 @@ footer {
 
     .section-header {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         gap: 16px;
         margin-bottom: 24px;
