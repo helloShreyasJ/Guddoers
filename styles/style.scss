@@ -681,6 +681,11 @@ footer {
         gap: 8px;
         @include font-roboto-condensed($weight-regular, $text-sm);
         opacity: 0.7;
+
+        a {
+            color: $color-white;
+            text-decoration: underline;
+        }
     }
 }
 
